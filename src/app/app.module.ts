@@ -6,6 +6,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ValidatorProvider } from '../providers/validator/validator';
+import { HttpModule } from '@angular/http';
+import {HttpClientModule } from '@angular/common/http';
+import { LocalStorageProvider } from '../providers/local-storage/local-storage';
+import { NativeStorage } from '@ionic-native/native-storage';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +20,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,  
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -24,7 +32,10 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ValidatorProvider,
+    NativeStorage,
+    LocalStorageProvider
   ]
 })
 export class AppModule {}

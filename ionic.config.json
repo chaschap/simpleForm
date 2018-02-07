@@ -1,6 +1,8 @@
 {
   "name": "simpleForm",
-  "app_id": "",
+  "app_id": "a088f93c",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

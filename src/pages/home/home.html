@@ -1,14 +1,136 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Your Personal Details
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+<!-- <form (ngSubmit)="saveDetails()">
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Your Name</ion-label>
+      <ion-input
+      type="text"
+      [(ngModel)]="details.name"
+      name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Your Occupation</ion-label>
+      <ion-input
+      type="text"
+      [(ngModel)]="details.occupation"
+      name="occupation"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Favorite Platform</ion-label>
+      <ion-select
+      type="text"
+      [(ngModel)]="details.platform"
+      name="platform">
+    <ion-option value="Android">Android</ion-option>
+    <ion-option value="iOS">iOS</ion-option>
+    <ion-option value="WP">Windows Phone</ion-option>
+    <ion-option value="Other">Other</ion-option>
+    </ion-select>
+    </ion-item>
+
+    <button ion-button color="primary" text-center block>Save Details</button>
+
+  </ion-list>
+</form>
+
+<form [formGroup]= "form2" (ngSubmit)="saveDetail(form2.value)">
+  <ion-list>
+    <ion-item margin-bottom>
+      <ion-label>Your Name</ion-label>
+      <ion-input type = "text" [formControl]="form2.controls['name']"></ion-input>
+    </ion-item>
+    <ion-item margin-bottom>
+        <ion-label>Your Occupation</ion-label>
+        <ion-input type = "text" [formControl]="form2.controls['occupation']"></ion-input>
+      </ion-item>
+      <ion-item margin-bottom>
+          <ion-label>Favorite Platform</ion-label>
+          <ion-select
+          [formControl]="form2.controls['platform']">
+        <ion-option value="Android">Android</ion-option>
+        <ion-option value="iOS">iOS</ion-option>
+        <ion-option value="WP">Windows Phone</ion-option>
+        <ion-option value="Other">Other</ion-option>
+        </ion-select>
+        </ion-item>
+
+        <button ion-button color="secondary" text-center block [disabled]=!form2.valid >Save Details2</button>
+
+  </ion-list>
+</form>
+<div *ngIf= "form2.controls['name'].dirty && !form2.controls['name'].valid">
+  <p *ngIf="form2.controls['name'].errors.InvalidName">
+    Your name cannot contain any numbers.
   </p>
+</div>
+
+<form #f="ngForm" (ngSubmit)="saveDetails3(f.value)">
+    <ion-list>
+
+        <ion-item>
+          <ion-label>Your Name</ion-label>
+          <ion-input
+          type="text"
+          name="name"
+          ngModel></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Your Occupation</ion-label>
+          <ion-input
+          type="text"
+          name="occupation"
+          ngModel></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Favorite Platform</ion-label>
+          <ion-select
+          type="text"
+          name="platform"
+          ngModel>
+        <ion-option value="Android">Android</ion-option>
+        <ion-option value="iOS">iOS</ion-option>
+        <ion-option value="WP">Windows Phone</ion-option>
+        <ion-option value="Other">Other</ion-option>
+        </ion-select>
+        </ion-item>
+    
+        <button ion-button color="primary" text-center block>Save Details</button>
+    
+      </ion-list>
+
+</form> -->
+
+<form [formGroup]="formMovie" (ngSubmit)="saveMovie()">
+    <ion-list>
+
+        <ion-item>
+          <ion-label>Title</ion-label>
+          <ion-input
+          type="text"
+          [(ngModel)]="filmTitle"
+         formControlName="movieName"></ion-input>
+        </ion-item>
+
+        <button ion-button color="primary" text-center block >Save Movie</button>
+    </ion-list>
+</form>
+<ion-list *ngIf="isData">
+  <ion-list-header>My saved movies</ion-list-header>
+  <ion-item *ngFor="let data of storedData">
+    {{data.movie}}
+  </ion-item>
+</ion-list>
 </ion-content>
